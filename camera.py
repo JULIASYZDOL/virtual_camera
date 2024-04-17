@@ -10,7 +10,7 @@ class Camera:
         self.fov = fov
         self.rotation = [0, 0, 0]
         self.move_speed = 10
-        self.rotation_speed = 2
+        self.rotation_speed = 1
         self.translation_matrix = np.array([
                 [1, 0, 0, 0],
                 [0, 1, 0, 0],
@@ -195,7 +195,7 @@ class Scene:
 
         point = np.array([x, y, z, 1])
 
-        rotated_point = np.dot(rotation_matrix_z, np.dot(rotation_matrix_y, np.dot(rotation_matrix_x, point)))
+        rotated_point = np.dot(rotation_matrix_x, np.dot(rotation_matrix_y, np.dot(rotation_matrix_z, point)))
 
         return rotated_point[:3]
 
